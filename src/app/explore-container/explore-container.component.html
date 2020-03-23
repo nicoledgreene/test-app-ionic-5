@@ -5,5 +5,10 @@
     <a (click)="toast()">TOAST</a>
   </div>
 
+  <div [style.padding]="'24px 0px'" [style.display]="'flex'" [style.flex-direction]="'column'">
+    <span>Status bar: {{statusBar && statusBar.isVisible ? 'Visible' : 'Hidden'}}</span>
+    <a>TOGGLE HIDE/SHOW</a>
+  </div>
+
   <!-- <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
 </div>

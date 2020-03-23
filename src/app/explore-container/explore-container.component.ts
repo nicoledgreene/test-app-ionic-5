@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-explore-container',
@@ -9,9 +10,12 @@ import { ToastController } from '@ionic/angular';
 export class ExploreContainerComponent implements OnInit {
   @Input() name: string;
 
-  constructor(public toastController: ToastController) { }
 
-  ngOnInit() {}
+  constructor(public toastController: ToastController, private statusBar: StatusBar) { }
+
+  ngOnInit() {
+    this.statusBar.show();
+  }
 
 
   toast() {
@@ -23,6 +27,15 @@ export class ExploreContainerComponent implements OnInit {
     }).catch(err => {
       console.error(err);
     });
+  }
+
+  toggleStatusBar() {
+    if (this.statusBar.isVisible) {
+        // do something
+        this.statusBar.hide();
+    } else {
+        this.statusBar.show();
+    }
   }
 
 }
